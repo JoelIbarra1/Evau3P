@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Evau3P.MVVM.View.JokesView"
+             Title="JokesView">
+    <StackLayout>
+        <Image
+    Source="840.jpg"
+    HeightRequest="100" />
+
+        <Label
+    Text="A mi, Joel Ibarra, me gusta este personaje porque 
+          para mi las locomotoras son las normalmotoras"
+    Style="{StaticResource Headline}"/>
+        <Button Text="Cargar Chiste" 
+                Command="{Binding LoadJokeCommand}"
+                IsEnabled="{Binding LoadJokeCommand.CanExecute}"/>
+        <Button Text="Guardar chiste" 
+                Command="{Binding SaveJokeCommand}" />
+        <Button Text="Eliminar chiste" 
+                Command="{Binding DeleteJokeCommand}" 
+                CommandParameter="{Binding SelectedCharacter}" />
+        <ListView ItemsSource="{Binding Characters}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding value}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>
